@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import{HttpClient} from '@angular/common/http'
+import { BehaviorSubject } from 'rxjs';
 
 
 export interface Authentication{
@@ -15,6 +16,8 @@ export interface Authentication{
   providedIn: 'root'
 })
 export class ServiceService {
+
+  isLoggin=new BehaviorSubject<boolean>(false)
 
   constructor(private http:HttpClient) { }
 

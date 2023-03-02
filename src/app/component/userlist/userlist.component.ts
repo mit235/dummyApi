@@ -16,8 +16,10 @@ export class UserlistComponent {
       this.userData=res;
       this.userList=res['users']
     })
-    console.log(this.userData);
+    
   }
+
+  
 
   userData:any;
 

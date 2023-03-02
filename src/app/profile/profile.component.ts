@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
-import { Router,Route } from '@angular/router';
+import { ProfileService } from '../service/profile.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
 })
 export class ProfileComponent {
-
-constructor(private router:Router){ 
-
- }
-
+  userData: any;
+  constructor(private service: ProfileService) {
+    this.service.getSingleUser().subscribe(
+      (res) => {console.warn(res)
+      this.userData=res;
+      
+      },(error) => console.warn('error from profile')
+    );
+  }
 }
